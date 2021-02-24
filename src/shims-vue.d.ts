@@ -4,8 +4,7 @@ declare module '*.vue' {
   export default component
 }
 
-declare module '@vue/runtime-core' {
-  export interface ComponentCustomProperties {
-    $goto: () => void
-  }
+declare module '@page' {
+  var a: any
+  export default a
 }
