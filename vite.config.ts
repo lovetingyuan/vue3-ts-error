@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig, normalizePath } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
 import { readFileSync } from 'fs'
@@ -10,7 +10,7 @@ export default defineConfig({
     name: 'test-plugin',
     resolveId (id) {
       if (id === virtualEntry) return id
-      if (id === '@page') return resolve(__dirname, 'src/Bar.vue')
+      if (id === '@page') return normalizePath(resolve(__dirname, 'src/Bar.vue'))
     },
     load(id) {
       if (id === virtualEntry) {
